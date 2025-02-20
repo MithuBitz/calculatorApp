@@ -3,12 +3,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .cal-container {
+  width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin-top: 50px;
+  padding: 10px;
+  /* border: 2px solid #ffa500; */
+  box-shadow: 2px 0px 5px 12px rgba(0, 0, 0, 0.46);
 }
 
 .display-field {
