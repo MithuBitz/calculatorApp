@@ -17,8 +17,27 @@ function printValue(num) {
 //   printValue(value);
 // });
 
+//Function to remove last num
+function backspaceOperation(numString) {
+  let result = numString.slice(0, -1);
+  displayArea.value = result;
+  return result;
+}
+
 function calculateOperation(numString) {
-  if (numString.includes("+")) {
+  if (numString.includes("%")) {
+    let percentResult = eval(numString);
+    displayArea.value = percentResult;
+    return percentResult;
+  }
+
+  if (numString.includes(".")) {
+    // console.log("Number has decimal point");
+
+    let result1 = eval(numString);
+    displayArea.value = result1;
+    return result1;
+  } else if (numString.includes("+")) {
     let stringPart = numString.split("+");
     console.log("Array Size: ", stringPart.length);
     let result1 = 0;
@@ -26,7 +45,7 @@ function calculateOperation(numString) {
       let strPartOne = Number(stringPart[i]);
       result1 += strPartOne;
     }
-    console.log(result1);
+    // console.log(result1);
 
     displayArea.value = result1;
     return result1;
@@ -65,6 +84,10 @@ function calculateOperation(numString) {
   }
 }
 
+function calculationWithDecimal(calculateData) {
+  return eval(calculateData);
+}
+
 function clearDisplay() {
   displayArea.value = "";
 }
@@ -101,6 +124,15 @@ btn.forEach((button) => {
         break;
       case "zero":
         printValue(0);
+        break;
+      case "decimal":
+        printValue(".");
+        break;
+      case "percent":
+        printValue("%");
+        break;
+      case "backspace":
+        backspaceOperation(displayArea.value);
         break;
 
       case "add-operation":
